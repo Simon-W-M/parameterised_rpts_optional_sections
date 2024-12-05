@@ -1,0 +1,33 @@
+---
+title: "output_simple"
+output: html_document
+date: "2024-12-05"
+params:
+  org_code: 'RMC'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown report for site `r params$org_code`
+
+In simple terms the varible within the markdown doc is params$xxx
+
+Make sure that you have declared them in the YAML to begin
+
+### Plot attendances
+
+```{r}
+plot_site(dat, params$org_code, 'attendances')
+```
+
+### Plot breaches
+
+
+```{r}
+plot_site(dat, params$org_code, 'breaches')
+```
+
+This version I have not hidden the R code
+

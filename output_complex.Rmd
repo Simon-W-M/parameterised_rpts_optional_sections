@@ -1,0 +1,56 @@
+---
+output: html_document
+date: "2024-12-05"
+params:
+  org_code: 'RMC'
+  plot_attend: TRUE
+  plot_brea: TRUE
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown report for site `r params$org_code`
+
+In simple terms the varible within the markdown doc is params$xxx
+
+Make sure that you have declared them in the YAML to begin
+
+This time have added a couple more varables to the top
+
+We will put the markdown within a cat statement which in turn will be within an **if** statement.  This is a base R if statement.
+
+In this case attendances is set as `r params$plot_attend`
+
+```{r, echo = TRUE,  warning=FALSE}
+
+if (params$plot_attend == TRUE) {
+  cat('### Plot attendances')
+  cat('\n')
+  cat('\n')
+  plot_site(dat, params$org_code, 'attendances')
+}
+
+
+
+```
+
+In this case breaches is set as `r params$plot_brea`
+
+```{r, echo = TRUE,  warning=FALSE}
+
+if (params$plot_brea == TRUE) {
+  cat('### Plot breaches')
+  cat('\n')
+  cat('\n')
+  plot_site(dat, params$org_code, 'breaches')
+}
+
+
+
+```
+
+If we set echo to false, in the places where FALSE was selected, we would not see anything at all.   That metric simply would not be there.
+
+
